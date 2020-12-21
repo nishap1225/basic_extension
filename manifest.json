@@ -1,11 +1,17 @@
 {
-    "name": "Getting Started Example",
-    "version": "1.0",
-    "description": "Build an Extension!",
-    "permissions": ["storage"],
-    "background": {
-        "service_worker": "background.js"
-        //"persistent": false
+    "name": "test_extension",
+    "description": "first extension",
+    "version": 1.0,
+    "manifest_version": 2.0, 
+    "icons": {
+        "128": "./idea.png"
     },
-    "manifest_version": 3
-  }
+    "background": { //scripts that get executed when the extension is installed or reloaded
+        "scripts:" :["./background.js"]
+    }, 
+    "options_page": "./options.html", 
+    "browser_action": {
+        "default_popup": "popup.html"
+    }, //popup page, also called page_action
+    "permissions": ["tabs", "https://www.google.com/*"] //tracks user's tabs, backend, using google as landing page
+}
